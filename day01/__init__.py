@@ -1,7 +1,7 @@
-from typing import List
+from typing import List, Union
 
 
-def get_depth_change(depths: List[int]) -> List:
+def get_depth_change(depths: List[int]) -> List[Union[None, int]]:
     """
     returns a list of bool that contains the change from the previous depth
         None -> used for the first entry
@@ -13,7 +13,7 @@ def get_depth_change(depths: List[int]) -> List:
     changes = [None]
 
     for i in range(1, len(depths)):
-        changes = changes + [depths[i] > depths[i-1]]
+        changes.append(depths[i] > depths[i-1])
 
     return changes
 
