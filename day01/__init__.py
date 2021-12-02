@@ -1,4 +1,7 @@
-def get_depth_change(depths):
+from typing import List
+
+
+def get_depth_change(depths: List[int]) -> List:
     """
     returns a list of bool that contains the change from the previous depth
         None -> used for the first entry
@@ -15,7 +18,7 @@ def get_depth_change(depths):
     return changes
 
 
-def count_depth_change(changes, is_increasing=True):
+def count_depth_change(changes: List, is_increasing=True) -> int:
     """
     returns a number of positive/negative/zero values depending on the given value
         True -> default; counts positive relative change
@@ -28,7 +31,7 @@ def count_depth_change(changes, is_increasing=True):
     return sum(v for v in changes if v is is_increasing)
 
 
-def get_measurement_window(depths, window=3):
+def get_measurement_window(depths: List[int], window: int = 3) -> List:
     """
     returns a list of int that contains the sum of the next `window` elements from `depths`
 
