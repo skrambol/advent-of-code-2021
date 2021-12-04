@@ -1,4 +1,6 @@
-def file_to_int_array(filename):
+from typing import List
+
+def file_to_int_array(filename: str) -> List[int]:
     """
     returns an array containing int from filename
 

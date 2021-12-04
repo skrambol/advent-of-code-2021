@@ -1,7 +1,7 @@
 from typing import List, Union
 
 
-def get_depth_change(depths: List[int]) -> List[Union[None, int]]:
+def get_depth_change(depths: List[int]) -> List[Union[None, bool]]:
     """
     returns a list of bool that contains the change from the previous depth
         None -> used for the first entry
@@ -10,7 +10,7 @@ def get_depth_change(depths: List[int]) -> List[Union[None, int]]:
 
     depths: list of depth changes
     """
-    changes = [None]
+    changes: List[Union[None, bool]] = [None]
 
     for i in range(1, len(depths)):
         changes.append(depths[i] > depths[i-1])
@@ -31,22 +31,22 @@ def count_depth_change(changes: List, is_increasing=True) -> int:
     return sum(v for v in changes if v is is_increasing)
 
 
-def get_measurement_window(depths: List[int], window: int = 3) -> List:
+def get_measurement_window(depths: List[int], window: int = 3) -> List[int]:
     """
     returns a list of int that contains the sum of the next `window` elements from `depths`
 
     depths: list of int; depth changes
     window: int; number of elements to sum
     """
-    max_index = len(depths)
-    array = []
+    max_index: int = len(depths)
+    array: List[int] = []
 
     for i in range(0, max_index):
         if i+window > max_index:
             break
 
         else:
-            measurement_window = sum(depths[i:i+window])
+            measurement_window: int = sum(depths[i:i+window])
             array.append(measurement_window)
 
     return array

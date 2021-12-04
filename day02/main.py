@@ -16,8 +16,8 @@ if __name__ == "__main__":
     print(PartOne.get_final_position(position))
 
     # part two
-    position = (0, 0, 0)
+    position1 = (0, 0, 0)
     for move in input:
-        position = PartTwo.move_coordinates(position, move)
+        position1 = PartTwo.move_coordinates(position1, move)
 
-    print(PartTwo.get_final_position(position))
+    print(PartTwo.get_final_position(position1))

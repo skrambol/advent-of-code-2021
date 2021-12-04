@@ -2,6 +2,7 @@ from typing import Tuple
 
 
 class PartOne():
+    @staticmethod
     def move_coordinates(position: Tuple[int, int], move: Tuple[str, int]) -> Tuple[int, int]:
         """
         returns a Tuple[int, int] of (x,y) coordinates
@@ -12,11 +13,11 @@ class PartOne():
             direction: "up" -> y - units
             direction: "down" -> y + units
         """
-        direction = move[0]
-        units = move[1]
+        direction: str = move[0]
+        units: int = move[1]
 
-        x = position[0]
-        y = position[1]
+        x: int = position[0]
+        y: int = position[1]
 
         if direction == "forward":
             return (x + units, y)
@@ -27,11 +28,13 @@ class PartOne():
 
         return position
 
+    @staticmethod
     def get_final_position(position: Tuple[int, int]) -> int:
         return position[0] * position[1]
 
 
 class PartTwo():
+    @staticmethod
     def move_coordinates(position: Tuple[int, int, int], move: Tuple[str, int]) -> Tuple[int, int, int]:
         """
         returns a Tuple[int, int] of (x,y) coordinates
@@ -42,12 +45,12 @@ class PartTwo():
             direction: "up" -> aim - units
             direction: "down" -> aim + units
         """
-        direction = move[0]
-        units = move[1]
+        direction: str = move[0]
+        units: int = move[1]
 
-        x = position[0]
-        y = position[1]
-        aim = position[2]
+        x: int = position[0]
+        y: int = position[1]
+        aim: int = position[2]
 
         if direction == "forward":
             return (x + units, y + (aim * units), aim)
@@ -58,5 +61,6 @@ class PartTwo():
 
         return position
 
+    @staticmethod
     def get_final_position(position: Tuple[int, int, int]) -> int:
         return position[0] * position[1]
